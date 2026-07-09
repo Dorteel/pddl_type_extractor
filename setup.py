@@ -23,7 +23,9 @@ setup(
         ],
     },
     entry_points={
-        'console_scripts': [
+        "console_scripts": [
+            "type_extraction_node = pddl_type_extractor.ros_node:main",
+            "test_behaviour_1k = pddl_type_extractor.test_behaviour_1k:main",
         ],
     },
 )

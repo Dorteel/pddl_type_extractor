@@ -1,0 +1,14 @@
+# ====================
+# Linguistic Settings
+# --------------------
+skip_agent_role: true
+
+use_only_first_propbank_frame: true
+
+included_vn_thetas:
+  - Theme
+  - Patient
+  - Destination
+  - Source
+  - Location
+  - Instrument
