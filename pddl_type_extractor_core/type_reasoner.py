@@ -139,15 +139,22 @@ def derive_types_from_pb_vn_mappings(mappings: dict, config: dict) -> list[str]:
                 if container_type:
                     types.add(container_type)
 
-                role_type = affordance_from_role_description(role["descr"])
-                if role_type:
-                    types.add(as_item_type(role_type))
+                vn_affordances = set()
 
                 for vn_role in role["vn_roles"]:
                     vn_class = vn_role["vn_class"]
                     vn_theta = vn_role["vn_theta"]
 
-                    for affordance_type in vn_role_to_affordance_types(vn_class, vn_theta):
-                        types.add(as_item_type(affordance_type))
+                    vn_affordances |= vn_role_to_affordance_types(vn_class, vn_theta)
+
+                for affordance_type in vn_affordances:
+                    types.add(as_item_type(affordance_type))
+
+                # Only use PropBank descriptions if VerbNet did not already give
+                # a stronger semantic affordance.
+                if "movable" not in vn_affordances:
+                    role_type = affordance_from_role_description(role["descr"])
+                    if role_type:
+                        types.add(as_item_type(role_type))
 
     return sorted(types)
