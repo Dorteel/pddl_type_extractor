@@ -20,6 +20,16 @@ PREDICATE_TO_AFFORDANCE = {
     "motion": "movable",
 }
 
+CONTAINER_PREPOSITIONS = {"in", "into", "inside", "within"}
+
+def infer_container_type(role):
+    prep = role.get("preposition")
+    vn_thetas = {vn_role.get("vn_theta") for vn_role in role.get("vn_roles", [])}
+
+    if prep in CONTAINER_PREPOSITIONS and vn_thetas & {"Destination", "Location", "Goal"}:
+        return "container - item"
+
+    return None
 
 def should_skip_role(role: dict, config: dict) -> bool:
     if config.get("skip_arg0_role", True) and role.get("arg") == "0":
@@ -124,6 +134,10 @@ def derive_types_from_pb_vn_mappings(mappings: dict, config: dict) -> list[str]:
             for role in roleset["roles"]:
                 if should_skip_role(role, config):
                     continue
+
+                container_type = infer_container_type(role)
+                if container_type:
+                    types.add(container_type)
 
                 role_type = affordance_from_role_description(role["descr"])
                 if role_type:

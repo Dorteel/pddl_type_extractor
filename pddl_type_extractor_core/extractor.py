@@ -2,11 +2,45 @@ from nltk.corpus import propbank
 from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize, pos_tag
 import nltk
+import re
 
 for pkg in ["propbank", "wordnet", "punkt", "averaged_perceptron_tagger_eng"]:
     nltk.download(pkg, quiet=True)
 
 lemmatizer = WordNetLemmatizer()
+
+CONTAINER_PREPOSITIONS = {"in", "into", "inside", "within"}
+DESTINATION_THETAS = {"Destination", "Location", "Goal"}
+
+
+def extract_prepositions(instruction: str) -> set[str]:
+    tokens = re.findall(r"\b[a-zA-Z]+\b", instruction.lower())
+    return {tok for tok in tokens if tok in CONTAINER_PREPOSITIONS}
+
+
+def role_has_vn_theta(role: dict, target_thetas: set[str]) -> bool:
+    return any(
+        vn_role.get("vn_theta") in target_thetas
+        for vn_role in role.get("vn_roles", [])
+    )
+
+
+def add_instruction_prepositions(mappings: dict, instruction: str) -> dict:
+    preps = extract_prepositions(instruction)
+
+    container_preps = preps & CONTAINER_PREPOSITIONS
+    if not container_preps:
+        return mappings
+
+    selected_prep = sorted(container_preps)[0]
+
+    for verb, rolesets in mappings.items():
+        for roleset in rolesets:
+            for role in roleset.get("roles", []):
+                if role_has_vn_theta(role, DESTINATION_THETAS):
+                    role["preposition"] = selected_prep
+
+    return mappings
 
 
 def extract_verbs(instruction: str) -> list[str]:
@@ -85,7 +119,8 @@ def instruction_to_pb_vn_mappings(instruction: str) -> dict:
         if mapped_rolesets:
             output[verb] = mapped_rolesets
 
-    return output
+    mappings = add_instruction_prepositions(output, instruction)
+    return mappings
 
 
 def instruction_to_propbank_debug(instruction: str) -> tuple[list, list, list]:
