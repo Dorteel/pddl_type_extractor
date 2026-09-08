@@ -1,0 +1,6 @@
+predicates:
+- at
+- in
+- on_top
+- holding
+- robot_free

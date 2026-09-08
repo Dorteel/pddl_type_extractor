@@ -1,0 +1,4 @@
+predicates:
+- in
+- holding
+- robot_free
