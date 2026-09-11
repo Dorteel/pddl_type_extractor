@@ -1,0 +1,239 @@
+model: sentence-transformers/all-MiniLM-L6-v2
+metric: cosine_similarity
+aggregation: maximum over full instruction and individual clauses
+catalog_texts:
+  drive: 'drive: Robot moves its base from one location to another.'
+  move: 'move: Robot moves its end-effector to a target pose.'
+  pick: 'pick: Robot acquires physical hold of an item.'
+  place: 'place: Robot puts a held item on a target surface.'
+  place_in_container: 'place in container: Robot puts a held item inside a container.'
+  stack: 'stack: Robot places a held item on top of another item.'
+  unstack: 'unstack: Robot removes an item from on top of another item and holds it.'
+  open: 'open: Robot changes a target from closed to open.'
+  close: 'close: Robot changes a target from open to closed.'
+  push: 'push: Robot applies force to displace an item away.'
+  pull: 'pull: Robot applies force to draw an item closer.'
+  pour: 'pour: Robot tilts a held container to discharge its contents.'
+  look_at: 'look at: Robot directs sensing toward a target.'
+  clean: 'clean: Robot removes a residue from a surface, so the surface is no longer
+    covered by that residue.'
+  fold: 'fold: Robot folds a piece of cloth or clothing.'
+  unfold: 'unfold: Robot unfolds a folded piece of cloth or clothing.'
+actions:
+- name: place_in_container
+  score: 0.27522045373916626
+  best_match: instruction
+  instruction_score: 0.27522045373916626
+  clause_scores:
+    clause_1: 0.27522045373916626
+  rank: 1
+- name: stack
+  score: 0.17822061479091644
+  best_match: instruction
+  instruction_score: 0.17822061479091644
+  clause_scores:
+    clause_1: 0.17822061479091644
+  rank: 2
+- name: unstack
+  score: 0.16882993280887604
+  best_match: instruction
+  instruction_score: 0.16882993280887604
+  clause_scores:
+    clause_1: 0.16882993280887604
+  rank: 3
+- name: pick
+  score: 0.16571228206157684
+  best_match: instruction
+  instruction_score: 0.16571228206157684
+  clause_scores:
+    clause_1: 0.16571228206157684
+  rank: 4
+- name: pour
+  score: 0.1614687144756317
+  best_match: instruction
+  instruction_score: 0.1614687144756317
+  clause_scores:
+    clause_1: 0.1614687144756317
+  rank: 5
+- name: place
+  score: 0.13825128972530365
+  best_match: instruction
+  instruction_score: 0.13825128972530365
+  clause_scores:
+    clause_1: 0.13825128972530365
+  rank: 6
+- name: fold
+  score: 0.11351452767848969
+  best_match: instruction
+  instruction_score: 0.11351452767848969
+  clause_scores:
+    clause_1: 0.11351452767848969
+  rank: 7
+- name: unfold
+  score: 0.1074628084897995
+  best_match: instruction
+  instruction_score: 0.1074628084897995
+  clause_scores:
+    clause_1: 0.1074628084897995
+  rank: 8
+- name: push
+  score: 0.1066373661160469
+  best_match: instruction
+  instruction_score: 0.1066373661160469
+  clause_scores:
+    clause_1: 0.1066373661160469
+  rank: 9
+- name: open
+  score: 0.08116979897022247
+  best_match: instruction
+  instruction_score: 0.08116979897022247
+  clause_scores:
+    clause_1: 0.08116979897022247
+  rank: 10
+- name: look_at
+  score: 0.08095613867044449
+  best_match: instruction
+  instruction_score: 0.08095613867044449
+  clause_scores:
+    clause_1: 0.08095613867044449
+  rank: 11
+- name: drive
+  score: 0.07169117033481598
+  best_match: instruction
+  instruction_score: 0.07169117033481598
+  clause_scores:
+    clause_1: 0.07169117033481598
+  rank: 12
+- name: move
+  score: 0.06541091948747635
+  best_match: instruction
+  instruction_score: 0.06541091948747635
+  clause_scores:
+    clause_1: 0.06541091948747635
+  rank: 13
+- name: close
+  score: 0.06300045549869537
+  best_match: instruction
+  instruction_score: 0.06300045549869537
+  clause_scores:
+    clause_1: 0.06300045549869537
+  rank: 14
+- name: pull
+  score: 0.054020680487155914
+  best_match: instruction
+  instruction_score: 0.054020680487155914
+  clause_scores:
+    clause_1: 0.054020680487155914
+  rank: 15
+- name: clean
+  score: 0.04383847862482071
+  best_match: instruction
+  instruction_score: 0.04383847862482071
+  clause_scores:
+    clause_1: 0.04383847862482071
+  rank: 16
+query_rankings:
+- id: instruction
+  text: Bag the groceries at the checkout - put the canned food, the eggs, the apple
+    and the orange juice into the bags.
+  ranking:
+  - rank: 1
+    name: place_in_container
+    score: 0.27522045373916626
+  - rank: 2
+    name: stack
+    score: 0.17822061479091644
+  - rank: 3
+    name: unstack
+    score: 0.16882993280887604
+  - rank: 4
+    name: pick
+    score: 0.16571228206157684
+  - rank: 5
+    name: pour
+    score: 0.1614687144756317
+  - rank: 6
+    name: place
+    score: 0.13825128972530365
+  - rank: 7
+    name: fold
+    score: 0.11351452767848969
+  - rank: 8
+    name: unfold
+    score: 0.1074628084897995
+  - rank: 9
+    name: push
+    score: 0.1066373661160469
+  - rank: 10
+    name: open
+    score: 0.08116979897022247
+  - rank: 11
+    name: look_at
+    score: 0.08095613867044449
+  - rank: 12
+    name: drive
+    score: 0.07169117033481598
+  - rank: 13
+    name: move
+    score: 0.06541091948747635
+  - rank: 14
+    name: close
+    score: 0.06300045549869537
+  - rank: 15
+    name: pull
+    score: 0.054020680487155914
+  - rank: 16
+    name: clean
+    score: 0.04383847862482071
+- id: clause_1
+  text: Bag the groceries at the checkout - put the canned food, the eggs, the apple
+    and the orange juice into the bags.
+  ranking:
+  - rank: 1
+    name: place_in_container
+    score: 0.27522045373916626
+  - rank: 2
+    name: stack
+    score: 0.17822061479091644
+  - rank: 3
+    name: unstack
+    score: 0.16882993280887604
+  - rank: 4
+    name: pick
+    score: 0.16571228206157684
+  - rank: 5
+    name: pour
+    score: 0.1614687144756317
+  - rank: 6
+    name: place
+    score: 0.13825128972530365
+  - rank: 7
+    name: fold
+    score: 0.11351452767848969
+  - rank: 8
+    name: unfold
+    score: 0.1074628084897995
+  - rank: 9
+    name: push
+    score: 0.1066373661160469
+  - rank: 10
+    name: open
+    score: 0.08116979897022247
+  - rank: 11
+    name: look_at
+    score: 0.08095613867044449
+  - rank: 12
+    name: drive
+    score: 0.07169117033481598
+  - rank: 13
+    name: move
+    score: 0.06541091948747635
+  - rank: 14
+    name: close
+    score: 0.06300045549869537
+  - rank: 15
+    name: pull
+    score: 0.054020680487155914
+  - rank: 16
+    name: clean
+    score: 0.04383847862482071

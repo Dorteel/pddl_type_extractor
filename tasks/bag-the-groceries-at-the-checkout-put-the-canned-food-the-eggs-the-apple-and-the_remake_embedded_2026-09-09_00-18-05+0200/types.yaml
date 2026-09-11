@@ -1,0 +1,8 @@
+types:
+- container - item
+- item - locatable
+- locatable - object
+- location - object
+- movable - item
+- object
+- robot - locatable

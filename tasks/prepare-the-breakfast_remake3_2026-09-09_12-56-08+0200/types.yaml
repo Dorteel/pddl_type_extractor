@@ -1,0 +1,6 @@
+types:
+- item - locatable
+- locatable - object
+- location - object
+- object
+- robot - locatable

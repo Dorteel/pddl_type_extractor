@@ -1,0 +1,5 @@
+predicates:
+- on_top
+- holding
+- robot_free
+- cooked

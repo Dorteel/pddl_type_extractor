@@ -1,0 +1,294 @@
+model: sentence-transformers/all-MiniLM-L6-v2
+metric: cosine_similarity
+aggregation: maximum over full instruction and individual clauses
+catalog_texts:
+  at: 'at: An entity is located at a place.'
+  in: 'in: An item is contained within a container.'
+  on_top: 'on top: An item is resting on top of another entity.'
+  next_to: 'next to: Two entities are adjacent.'
+  under: 'under: An item is underneath another entity.'
+  touching: 'touching: Two entities are in physical contact.'
+  attached: 'attached: An item is attached to another entity.'
+  draped: 'draped: An item is draped over another entity.'
+  holding: 'holding: A robot is currently holding an item.'
+  robot_free: 'robot free: A robot is not currently holding any item.'
+  covered: 'covered: An entity is covered by residue such as dirt, dust or stains.'
+  open: 'open: A container is in an open state.'
+  cooked: 'cooked: A food is cooked.'
+  frozen: 'frozen: A food is frozen.'
+  folded: 'folded: An item is folded.'
+  unfolded: 'unfolded: An item is unfolded.'
+  toggled_on: 'toggled on: A device is switched on.'
+  hot: 'hot: An entity is hot.'
+  broken: 'broken: An item is broken.'
+  on_fire: 'on fire: An item is on fire.'
+predicates:
+- name: in
+  score: 0.30845382809638977
+  best_match: instruction
+  instruction_score: 0.30845382809638977
+  clause_scores:
+    clause_1: 0.30845382809638977
+  rank: 1
+- name: cooked
+  score: 0.26899102330207825
+  best_match: instruction
+  instruction_score: 0.26899102330207825
+  clause_scores:
+    clause_1: 0.26899102330207825
+  rank: 2
+- name: frozen
+  score: 0.2639170289039612
+  best_match: instruction
+  instruction_score: 0.2639170289039612
+  clause_scores:
+    clause_1: 0.2639170289039612
+  rank: 3
+- name: unfolded
+  score: 0.20222395658493042
+  best_match: instruction
+  instruction_score: 0.20222395658493042
+  clause_scores:
+    clause_1: 0.20222395658493042
+  rank: 4
+- name: open
+  score: 0.20219868421554565
+  best_match: instruction
+  instruction_score: 0.20219868421554565
+  clause_scores:
+    clause_1: 0.20219868421554565
+  rank: 5
+- name: folded
+  score: 0.184910386800766
+  best_match: instruction
+  instruction_score: 0.184910386800766
+  clause_scores:
+    clause_1: 0.184910386800766
+  rank: 6
+- name: under
+  score: 0.1673925220966339
+  best_match: instruction
+  instruction_score: 0.1673925220966339
+  clause_scores:
+    clause_1: 0.1673925220966339
+  rank: 7
+- name: on_top
+  score: 0.16392751038074493
+  best_match: instruction
+  instruction_score: 0.16392751038074493
+  clause_scores:
+    clause_1: 0.16392751038074493
+  rank: 8
+- name: attached
+  score: 0.1582144796848297
+  best_match: instruction
+  instruction_score: 0.1582144796848297
+  clause_scores:
+    clause_1: 0.1582144796848297
+  rank: 9
+- name: at
+  score: 0.11040086299180984
+  best_match: instruction
+  instruction_score: 0.11040086299180984
+  clause_scores:
+    clause_1: 0.11040086299180984
+  rank: 10
+- name: on_fire
+  score: 0.11005879938602448
+  best_match: instruction
+  instruction_score: 0.11005879938602448
+  clause_scores:
+    clause_1: 0.11005879938602448
+  rank: 11
+- name: holding
+  score: 0.10241353511810303
+  best_match: instruction
+  instruction_score: 0.10241353511810303
+  clause_scores:
+    clause_1: 0.10241353511810303
+  rank: 12
+- name: broken
+  score: 0.09879036992788315
+  best_match: instruction
+  instruction_score: 0.09879036992788315
+  clause_scores:
+    clause_1: 0.09879036992788315
+  rank: 13
+- name: next_to
+  score: 0.09700597822666168
+  best_match: instruction
+  instruction_score: 0.09700597822666168
+  clause_scores:
+    clause_1: 0.09700597822666168
+  rank: 14
+- name: robot_free
+  score: 0.08742310851812363
+  best_match: instruction
+  instruction_score: 0.08742310851812363
+  clause_scores:
+    clause_1: 0.08742310851812363
+  rank: 15
+- name: draped
+  score: 0.06914322078227997
+  best_match: instruction
+  instruction_score: 0.06914322078227997
+  clause_scores:
+    clause_1: 0.06914322078227997
+  rank: 16
+- name: toggled_on
+  score: 0.05049924552440643
+  best_match: instruction
+  instruction_score: 0.05049924552440643
+  clause_scores:
+    clause_1: 0.05049924552440643
+  rank: 17
+- name: covered
+  score: 0.03272201865911484
+  best_match: instruction
+  instruction_score: 0.03272201865911484
+  clause_scores:
+    clause_1: 0.03272201865911484
+  rank: 18
+- name: hot
+  score: 0.015434391796588898
+  best_match: instruction
+  instruction_score: 0.015434391796588898
+  clause_scores:
+    clause_1: 0.015434391796588898
+  rank: 19
+- name: touching
+  score: 0.012304596602916718
+  best_match: instruction
+  instruction_score: 0.012304596602916718
+  clause_scores:
+    clause_1: 0.012304596602916718
+  rank: 20
+query_rankings:
+- id: instruction
+  text: Bag the groceries at the checkout - put the canned food, the eggs, the apple
+    and the orange juice into the bags.
+  ranking:
+  - rank: 1
+    name: in
+    score: 0.30845382809638977
+  - rank: 2
+    name: cooked
+    score: 0.26899102330207825
+  - rank: 3
+    name: frozen
+    score: 0.2639170289039612
+  - rank: 4
+    name: unfolded
+    score: 0.20222395658493042
+  - rank: 5
+    name: open
+    score: 0.20219868421554565
+  - rank: 6
+    name: folded
+    score: 0.184910386800766
+  - rank: 7
+    name: under
+    score: 0.1673925220966339
+  - rank: 8
+    name: on_top
+    score: 0.16392751038074493
+  - rank: 9
+    name: attached
+    score: 0.1582144796848297
+  - rank: 10
+    name: at
+    score: 0.11040086299180984
+  - rank: 11
+    name: on_fire
+    score: 0.11005879938602448
+  - rank: 12
+    name: holding
+    score: 0.10241353511810303
+  - rank: 13
+    name: broken
+    score: 0.09879036992788315
+  - rank: 14
+    name: next_to
+    score: 0.09700597822666168
+  - rank: 15
+    name: robot_free
+    score: 0.08742310851812363
+  - rank: 16
+    name: draped
+    score: 0.06914322078227997
+  - rank: 17
+    name: toggled_on
+    score: 0.05049924552440643
+  - rank: 18
+    name: covered
+    score: 0.03272201865911484
+  - rank: 19
+    name: hot
+    score: 0.015434391796588898
+  - rank: 20
+    name: touching
+    score: 0.012304596602916718
+- id: clause_1
+  text: Bag the groceries at the checkout - put the canned food, the eggs, the apple
+    and the orange juice into the bags.
+  ranking:
+  - rank: 1
+    name: in
+    score: 0.30845382809638977
+  - rank: 2
+    name: cooked
+    score: 0.26899102330207825
+  - rank: 3
+    name: frozen
+    score: 0.2639170289039612
+  - rank: 4
+    name: unfolded
+    score: 0.20222395658493042
+  - rank: 5
+    name: open
+    score: 0.20219868421554565
+  - rank: 6
+    name: folded
+    score: 0.184910386800766
+  - rank: 7
+    name: under
+    score: 0.1673925220966339
+  - rank: 8
+    name: on_top
+    score: 0.16392751038074493
+  - rank: 9
+    name: attached
+    score: 0.1582144796848297
+  - rank: 10
+    name: at
+    score: 0.11040086299180984
+  - rank: 11
+    name: on_fire
+    score: 0.11005879938602448
+  - rank: 12
+    name: holding
+    score: 0.10241353511810303
+  - rank: 13
+    name: broken
+    score: 0.09879036992788315
+  - rank: 14
+    name: next_to
+    score: 0.09700597822666168
+  - rank: 15
+    name: robot_free
+    score: 0.08742310851812363
+  - rank: 16
+    name: draped
+    score: 0.06914322078227997
+  - rank: 17
+    name: toggled_on
+    score: 0.05049924552440643
+  - rank: 18
+    name: covered
+    score: 0.03272201865911484
+  - rank: 19
+    name: hot
+    score: 0.015434391796588898
+  - rank: 20
+    name: touching
+    score: 0.012304596602916718
